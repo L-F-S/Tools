@@ -1,0 +1,143 @@
+This folder should contain all important scripts used durante il tirocinio. See tirocinio/log/log for more info
+contiene info su dove lanciare ognuno dei comandi e come lanciarli.
+
+---------------------
+
+preprocess_PDB.py MAI USATO PERO' BELLO
+
+-----------------
+sim_launchern.sh  (and sim_launchern_rc0)
+
+cd tirocinio/tools
+./sim_launchern.sh
+(if not working, do: chmod +x sim_launcern.sh)
+
+-------------------
+pdb2kaw.sh
+
+cp pdbwkaw.sh ../PDB (or ../PDB/prote)
+sh pdb2kaw nomefile (senza .pdb)
+
+------------------
+fast_run_mover.sh
+
+sh fast_run_mover.sh
+
+-----------------
+distcheck.py e distcheck_wrap.sh
+
+cd tirocinio/tools
+
+sh distcheck_wrap.sh
+
+--------------------
+read_angles
+
+cd ../input_files_pdb2kaw/nomefile.pdb
+../../tools/read_angles nomefile.kaw 50 50 0 2
+
+--------------------
+read_distance
+
+cd ../input_files_pdb2kaw/nomefile.pdb
+../../tools/read_angles nomefile.kaw
+--------------------
+creazoione readchain_0 files.r
+
+rstudio
+
+-----------------------
+awk.sh renamer.sh runner.sh
+
+cd ../input_files_pdb2kaw
+sh one_of_those_three_worked_to_create_the_readchain0_files_the_others_didnt.sh
+
+--------------------------
+checkwrapper_jobs_simulations OBSOLETO
+--------------------------
+
+check_simulations.sh,  check_simulations.py
+
+cd tirocinio/tools
+
+sh check_simulations.sh 
+or
+qsub check_simulations.sh
+-----------------------
+
+jobs_iterator.sh e one_round.sh
+
+# to be launched via the jobs_iterator.sh, only on server.
+
+cd ../jobs
+sh jobs_iterator.sh
+
+------------------------
+check_jobs.py
+
+cd ../tools
+python chec_jobs.py
+
+----------------------
+afi_J_prova.sh #OBSOLETO
+
+---------------------
+
+prel_analyses.py e prel_analyses_wrapper.sh  # OBSOLETO
+
+
+---------------------
+
+prel_analyese_only_rmsdnc.py   <- USO QUESTO INSTEAD
+
+-----------------------
+temp_run_mover.sh
+
+to be used only once
+
+cd ../siumlations
+
+sh temp_run_mover.sh
+
+-----------------------
+
+Free_Energy_plot.r e job_plot_generator
+
+Rscript tools/Free_Energy_plot  ../analyses/protein/protein.tsv
+
+oppure
+
+sh job_plot_generator
+(non veramente un job xke nn penso riuscirei a far fungere ggplot su cluster)
+
+----------------------
+
+estimate_folding_rates.py        #OBSOLETO
+
+cd /tools
+python estimate_folding_rates.py
+
+----------------------
+
+estimate_folding_rates_3.py       <- usa qst instead
+
+cd /tools
+usage:
+cd /tools/cluster
+qsub est_fr_3_job
+
+----------------------
+
+scatterplot_foldingrates.py
+
+
+-----------------------
+
+G_calc_wrapper.py
+cd /tools
+python G_calc_wrapper.py
+
+----------------
+G_calc folder
+usage: vedi sopra
+

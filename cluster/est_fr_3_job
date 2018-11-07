@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# numero di nodi
+#PBS -l select=2:ncpus=8:mem=5gb
+
+ 
+# imposta la coda di esecuzione (usa cpuq (o allq?))
+#PBS -q cpuq 
+#PBS -o o_est_fr_3 
+#PBS -e e_est_fr_3
+
+
+module load python-3.5.2
+
+cd /home/lorenzo.signorini/tirocinio/tools
+
+python estimate_folding_rates_3.py
+
+module unload python-3.5.2

@@ -1,0 +1,4 @@
+  File "/apps/python-3.5.2/lib/python3.5/site.py", line 176
+    file=sys.stderr)
+        ^
+SyntaxError: invalid syntax
