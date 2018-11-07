@@ -8,6 +8,8 @@ Created on Wed Jun 27 12:54:53 2018
 questo plto manc a1urn che viene -infintio
 
 ps:(0.1,0.2,0.3) è un bel colore
+
+aggiunta funzionalità per calcolare scatterplots coi nuovi nuovi folding rates
 """
 
 import pandas as pd
@@ -70,7 +72,7 @@ baiesi_index = """1afi
 2ci2
 2pdd
 2vik""".split()
-observed_ln_freq=pd.Series(data=baiesi_data, index = baiesi_index).sort_index().to_frame()
+observed_ln_freq=pd.Series(data=baiesi_data, index = baiesi_index).sort_index()
 print(len(observed_ln_freq))
 
 ########################
@@ -92,10 +94,17 @@ estimated_ln_freq=pd.Series(data=estim_data, index=estim_index).sort_index()
 
 print(estimated_ln_freq)    
 
+
+
 ################################
 # real estimated FR:
+#
+#       WARNING: 
+#         IN LINE 107 (f = open("/home/lo.../log/*_folding_rates_highest_benc", "r"))
+#    IF CALCULATING WITH MEAN: USE FILE 'real_folding_rates_highest_bench'
+#    IF CALCULATING WITH MEDIAN: USE FILE 'MEDIAN_real_folding_rates_highest_bench'
 
-f=open("/home/lorenzo.signorini/tirocinio/log/real_folding_rates_highest_bench", "r")
+f=open("/home/lorenzo.signorini/tirocinio/log/median_real_folding_rates_highest_bench", "r")
 estimated_ln_FR=f.readlines()
 f.close()
 FR_index=[]
@@ -110,16 +119,12 @@ estimated_ln_FR=pd.Series(data=FR_data, index=FR_index).sort_index()
 
 
 ###################
-
-
-
 # topological coso:
 topo = pd.Series([0.77,1.62,0.27,0.27,0.47,0.4,0.84,0.96,0.56,0.54,0.5,0.3,0.39,0.49,0.47,0.71,0.67,0.61,0.47,1.15,0.72,0.33,0.6,0.68,0.3,0.86], index=estimated_ln_FR.index).to_frame()
  
                  
 # merge series in dataframe
 ln_frequencies = estimated_ln_freq.to_frame() # la x
-
 ln_frequencies = ln_frequencies.merge(observed_ln_freq.to_frame(), right_index=True, left_index=True) #la y
 
 est_freq_vs_topo = estimated_ln_freq.to_frame()
@@ -158,7 +163,7 @@ random_colors = [(np.random.uniform(), np.random.uniform(), np.random.uniform())
 # create plot
     # o così
 i=0
-for protein, row in est_vs_obs_FR.iterrows():  #cambia qui, poi la riga sotto, e poi il nome del grafico
+for protein, row in est_freq_vs_topo.iterrows():  #cambia qui, poi la riga sotto, e poi il nome del grafico
     ax.plot(row[0], row[1], linestyle='', marker=(np.random.randint(3,7), np.random.randint(0,3), 0) ,ms=6, label=protein, color = random_colors[i])  # color = colors_of[protein], marker="o"
     i+=1 # this index is used for the colors
     
@@ -175,9 +180,9 @@ ax.grid()
 # determine correlation:
 # this is somewhat ambiguous, becuase of the usual -inf datum. I choose to not take it into acocunt
 
-corcoeff=np.corrcoef(np.array(est_vs_obs_FR['0_x']), np.array(est_vs_obs_FR['0_y']))[1][0]    # .drop(['1urn'])
+corcoeff=np.corrcoef(np.array(est_freq_vs_topo['0_x'].drop(['1urn'])), np.array(est_freq_vs_topo['0_y'].drop(['1urn'])))[1][0]    # aggiungi .drop(['1urn']) a entrami , per droppare 1urn, SOLO nel caso tu stia calcolando le folding_frequencies (estimated_folding_rates vecchi, il primissimo coso)
 line="Pearson's Correlation coefficient: " + str(round(corcoeff, 3))
 fig.text(0.5,0.1, line)
 
-plt.savefig("/home/lorenzo.signorini/tirocinio/analyses/scatterplot_real_FR_vs_topo_CC_hb.pdf")
+plt.savefig("/home/lorenzo.signorini/tirocinio/analyses/scatterplot_temp_ff_vs_topo_CC_hb.pdf")    #WARNING : CHANGE QUI IL NOME DEL FILE DI OUTPUT!! ATTENTO A NON SOVRASCRIVERE NULLA!
 plt.close()
