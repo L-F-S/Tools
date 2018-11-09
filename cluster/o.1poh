@@ -1,0 +1,36 @@
+c1 = 1 	 c2 = 1
+segment 1 (internal): 37 60
+segment 1 is closed from 37 to 60
+segment 1 is 25 beads long
+segment 2 (internal): 0 36
+segment 2 is closed from 0 to 36
+segment 2 is 38 beads long
+Processing a 85 beads trajectory, max_i = 60
+first step 0
+start recording at 0 step
+0	-1	0
+end of file reached
+7001 frames read
+runtime = 11.0400
+c1 = 1 	 c2 = 1
+segment 1 (internal): 37 60
+segment 1 is closed from 37 to 60
+segment 1 is 25 beads long
+segment 2 (internal): 0 36
+segment 2 is closed from 0 to 36
+segment 2 is 38 beads long
+Processing a 85 beads trajectory, max_i = 60
+first step 0
+start recording at 0 step
+0	-1	0
+end of file reached
+7001 frames read
+runtime = 10.3900
+['256b', '1psf', '1ten', '1poh', '1csp', '1bzp', '1hrc', '1hz6_a', '1div.n', '1bnz_a', '1ubq', '1fkb', '1lmb3', '1tit', '1urn', '1afi', '1pgb', '1aps', '1wit', '2abd', '1aye', '1shf_a', '2ci2', '2vik', '2pdd', '1imq']
+--------------------------------------------------
+
+PROCESSING 1poh :
+
+
+Traiettoria n  run_886_0 protein :  1poh
+Traiettoria n  run_889_0 protein :  1poh

@@ -1,0 +1,10 @@
+# file creato con g_calc_launcher.sh
+#PBS -l select=2:ncpus=2:mem=2gb
+#PBS -q cpuq
+#PBS -N G_calc_2pdd.in
+#PBS -o o.2pdd
+#PBS -e e.2pdd
+module load python-3.5.2
+cd /home/lorenzo.signorini/tirocinio/tools/cluster
+python3 G_calc_wrapper_CL_2pdd.py
+module unload

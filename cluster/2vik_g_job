@@ -1,0 +1,10 @@
+# file creato con g_calc_launcher.sh
+#PBS -l select=2:ncpus=2:mem=2gb
+#PBS -q cpuq
+#PBS -N G_calc_2vik.in
+#PBS -o o.2vik
+#PBS -e e.2vik
+module load python-3.5.2
+cd /home/lorenzo.signorini/tirocinio/tools/cluster
+python3 G_calc_wrapper_CL_2vik.py
+module unload

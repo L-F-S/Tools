@@ -1,0 +1,10 @@
+# file creato con g_calc_launcher.sh
+#PBS -l select=2:ncpus=2:mem=2gb
+#PBS -q cpuq
+#PBS -N G_calc_1ten.in
+#PBS -o o.1ten
+#PBS -e e.1ten
+module load python-3.5.2
+cd /home/lorenzo.signorini/tirocinio/tools/cluster
+python3 G_calc_wrapper_CL_1ten.py
+module unload

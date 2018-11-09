@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "G_calc_wrapper_CL_1urn.py", line 86, in <module>
+    main()
+  File "G_calc_wrapper_CL_1urn.py", line 71, in main
+    input_name = make_input_file(protein, protein_metadata[protein_metadata.name==protein])
+  File "G_calc_wrapper_CL_1urn.py", line 48, in make_input_file
+    i1 = int(prot_metadata.i1)
+  File "/apps/python-3.5.2/lib/python3.5/site-packages/pandas/core/series.py", line 118, in wrapper
+    "{0}".format(str(converter)))
+TypeError: cannot convert the series to <class 'int'>
