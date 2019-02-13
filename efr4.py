@@ -5,6 +5,8 @@ Created on Mon Jun 25 16:06:52 2018
 
 @author: lorenzo
 
+v4: 12/02/2019:
+    cambiare il modo di calcolare mean e median per calcoalrle meglio
 v 3.1: 06/02/2019:
     aggeggiata per le cartelle al Max Plank
     make sure you eliminated crashed runs before launching this
