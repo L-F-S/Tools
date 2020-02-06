@@ -22,13 +22,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from scipy.ndimage.filters import gaussian_filter
-
-
 ###############
-# if matplotlib gets stuck in some wierd way, just do this.
-
-from importlib import reload  
-#eload(plt)
+# if matplotlib gets stuck in some weird way, just uncomment this:
+#from importlib import reload  
+#reload(plt)
+###############
 from matplotlib.colors import LogNorm
 
 
@@ -38,8 +36,10 @@ from matplotlib.colors import LogNorm
     
 def twoD_free_energy_plot(x,y, sname, xvalue,kind):
     """
+    Produces a nice gaussian-smoothed 2D heatmap
+    of x and y.
      inputs: x,y   : numpy.arrays of the same length
-            name   : a string to give a title to the plot
+            sname   : a string to give a title to the plot
             xvalue : little string to print the name of x
             kind   : another string for the filename. 
      output: a smoothed 2d-free-energy-plot
