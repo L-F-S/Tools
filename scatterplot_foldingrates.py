@@ -85,7 +85,7 @@ print(len(observed_ln_freq))
 ########################
 # estimated folding rates (now called efolding frequency):
 
-f=open("/home/lorenzo.signorini/tirocinio/log/folding_rates3")
+f=open("/home/lorenzo/opti/da/old_log/folding_rates3")
 estimated_ln_freq=f.readlines()
 f.close()
 n=0
